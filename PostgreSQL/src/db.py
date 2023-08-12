@@ -1,13 +1,21 @@
+import os
 from typing import Optional
+
 from peewee import PostgresqlDatabase
+
 
 class DB:
 	@staticmethod
 	def get_db() -> Optional[PostgresqlDatabase]:
 		try:
 			# пытаемся подключиться к базе данных
-			pg_db = PostgresqlDatabase('db1', user='user1', password='12345678',
-									host='rc1b-wk8y07bcypyswmiv.mdb.yandexcloud.net', port=6432)
+			pg_db = PostgresqlDatabase(
+				os.environ['dbname'],
+				user=os.environ['dbuser'],
+				password=os.environ['dbpassword'],
+				host=os.environ['dbhost'],
+				port=int(os.environ['dbport']),
+			)
 			pg_db.connect()
 			return pg_db
 		except Exception as err:

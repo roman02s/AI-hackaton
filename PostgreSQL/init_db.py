@@ -5,6 +5,7 @@ from peewee import *
 from src.db import DB
 
 
+
 db = DB.get_db()
 
 # Index(['Number', 'Question', 'Products_name', 'Products_Uids', 'Ingreds',
@@ -48,7 +49,7 @@ print(df.to_dict('records')[0])
 # df.columns to list
 
 print(df.columns)
-print(df.to_dict('records')[0].keys())
+print(df.to_dict('records')[0])
 # вставить данные df в Knowledge
 with db.atomic():
 	Knowledge.insert_many(df.to_dict('records'), fields=list(df.columns)).execute()

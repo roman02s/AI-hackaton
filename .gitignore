@@ -2,3 +2,6 @@
 tmp
 .DS_Store
 api_env
+pg_env
+config.env
+__pycache__

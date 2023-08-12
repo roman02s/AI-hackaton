@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message Message {
+  string sender = 1;
+  string recipient = 2;
+  string content = 3;
+  int64 timestamp = 4;
+}
+
+message IsValid {
+  bool valid = 1;
+}
+
+message Empty {}
+
+service Service {
+  rpc PrepareMessage(Message) returns (IsValid);
+  rpc SendMessage(Message) returns (Empty);
+}
