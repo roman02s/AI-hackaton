@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "tg-bot"
+version = "0.1.0"
+description = ""
+authors = ["zagorulko <zagorulkooa@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "tg_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-telegram-bot = "^20.4"
+grpcio = "^1.57.0"
+telebot = "^0.0.5"
+aiogram = "^2.25.1"
+langchain = "0.0.263"
+python-dotenv = "^1.0.0"
+openai = "^0.27.8"
+pillow = "^10.0.0"
+replicate = "^0.11.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
