@@ -1,7 +1,7 @@
 import os
 import replicate
 
-os.environ['REPLICATE_API_TOKEN'] = "r8_5KNtdaDEHlVxBbeg52Fmjq2PGl2lOWd0wi3aU"
+os.environ['REPLICATE_API_TOKEN'] = os.getenv('REPLICATE_API_TOKEN')
 
 
 def create_photo(promt):

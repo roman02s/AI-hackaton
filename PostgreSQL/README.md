@@ -1,4 +1,18 @@
-# Запуск
+# PostgreSQL service
+
+Сервис для подключения к БД PostgreSQL и иннициализации собранной базой знаний.
+
+## Запуск
+
+Для запуска сценария требуется в ```config.env``` записать переменные окружения:
+```bash
+dbname={dbname}
+dbuser={dbuser}
+dbpassword={dbpassword}
+dbhost={dbhost}
+dbport={dbport}
+```
+
 
 1) Установка зависимостей
 ```bash

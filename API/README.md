@@ -1,15 +1,39 @@
-# Запуск
+# API service
 
-1) Установка зависимостей
+Этот модуль представляет собой сервис, который обеспечивает основную логику сервиса.
+
+## Установка и запуск
+
+Для запуска сценария требуется в ```config.env``` записать переменные окружения:
 ```bash
-source ./scripts/script.sh
-python3 -m venv api_env
-source api_env/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
+dbname={dbname}
+dbuser={dbuser}
+dbpassword={dbpassword}
+dbhost={dbhost}
+dbport={dbport}
+API_KEY={API_KEY}
 ```
 
-2) 
-```bash
-python3 src/prepare_data.py
-```
+
+Для установки и запуска, выполните следующие команды:
+
+1. Соберите Docker образ:
+   ```
+   sudo docker build -t api:{version} .
+   ```
+
+2. Запустите Docker контейнер:
+   ```
+   sudo docker run -d --restart unless-stopped -p {port}:8000 -t --name api_service api:{version}
+   ```
+
+## Конфигурация
+
+Для настройки api сервиса, отредактируйте файл `config.env`, который находится в корневой директории проекта. В этом файле вы можете указать токен вашего Telegram бота и другие параметры.
+
+## Функциональность
+
+Основная функциональность включает:
+
+- Проверку входящих запросов и их обработку
+- TODO

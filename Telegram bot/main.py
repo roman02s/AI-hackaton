@@ -1,3 +1,4 @@
+import os
 import asyncio
 import requests
 from aiogram import Bot, Dispatcher, types
@@ -6,7 +7,7 @@ from langchain_file import get_completion
 from text2image import create_photo
 
 # Токен Telegram бота
-BOT_TOKEN = "6000355284:AAEw0ZjfliJluwMdK-CIO0_cTOTjMKGmHjc"
+BOT_TOKEN = os.environ['BOT_TOKEN']
 
 # Создание экземпляра бота и диспетчера
 bot = Bot(token=BOT_TOKEN)

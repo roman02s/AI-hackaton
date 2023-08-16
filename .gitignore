@@ -3,5 +3,7 @@ tmp
 .DS_Store
 api_env
 pg_env
+*.env
 config.env
 __pycache__
+Knowledge_Base.csv
