@@ -1,13 +1,9 @@
 import grpc
 
 from src.protos.protobuf_pb2_grpc import ServiceServicer, ServiceStub
-from src.protos.protobuf_pb2 import Empty, Message, IsValid
+from src.protos.protobuf_pb2 import Message
 
 
 class BaseService(ServiceServicer):
-	def PrepareMessage(self, request: Message, context: grpc.ServicerContext) -> IsValid:
+	def PrepareMessage(self, request: Message, context: grpc.ServicerContext) -> Message:
 		raise NotImplementedError
-
-	def SendMessage(self, request: Message, context: grpc.ServicerContext) -> Empty:
-		raise NotImplementedError
-

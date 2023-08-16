@@ -12,6 +12,7 @@ dbpassword={dbpassword}
 dbhost={dbhost}
 dbport={dbport}
 API_KEY={API_KEY}
+REPLICATE_API_TOKEN={REPLICATE_API_TOKEN}
 ```
 
 

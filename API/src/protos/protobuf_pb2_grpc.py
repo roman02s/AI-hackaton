@@ -17,12 +17,7 @@ class ServiceStub(object):
         self.PrepareMessage = channel.unary_unary(
                 '/Service/PrepareMessage',
                 request_serializer=src_dot_protos_dot_protobuf__pb2.Message.SerializeToString,
-                response_deserializer=src_dot_protos_dot_protobuf__pb2.IsValid.FromString,
-                )
-        self.SendMessage = channel.unary_unary(
-                '/Service/SendMessage',
-                request_serializer=src_dot_protos_dot_protobuf__pb2.Message.SerializeToString,
-                response_deserializer=src_dot_protos_dot_protobuf__pb2.Empty.FromString,
+                response_deserializer=src_dot_protos_dot_protobuf__pb2.Message.FromString,
                 )
 
 
@@ -35,24 +30,13 @@ class ServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SendMessage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'PrepareMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.PrepareMessage,
                     request_deserializer=src_dot_protos_dot_protobuf__pb2.Message.FromString,
-                    response_serializer=src_dot_protos_dot_protobuf__pb2.IsValid.SerializeToString,
-            ),
-            'SendMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.SendMessage,
-                    request_deserializer=src_dot_protos_dot_protobuf__pb2.Message.FromString,
-                    response_serializer=src_dot_protos_dot_protobuf__pb2.Empty.SerializeToString,
+                    response_serializer=src_dot_protos_dot_protobuf__pb2.Message.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -77,23 +61,6 @@ class Service(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Service/PrepareMessage',
             src_dot_protos_dot_protobuf__pb2.Message.SerializeToString,
-            src_dot_protos_dot_protobuf__pb2.IsValid.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SendMessage(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Service/SendMessage',
-            src_dot_protos_dot_protobuf__pb2.Message.SerializeToString,
-            src_dot_protos_dot_protobuf__pb2.Empty.FromString,
+            src_dot_protos_dot_protobuf__pb2.Message.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

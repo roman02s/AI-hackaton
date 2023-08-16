@@ -1,8 +1,7 @@
 .idea
 tmp
 .DS_Store
-api_env
-pg_env
+*_env
 *.env
 config.env
 __pycache__
