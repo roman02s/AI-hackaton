@@ -25,7 +25,7 @@ user_states = {}
 async def start(message: types.Message):
     markup = types.ReplyKeyboardRemove(selective=False)
     await message.answer(f"Привет, {message.from_user.first_name}! Я бот new_pizza_product :) "
-                         f"Здесь ты можешь описать продукт, которого ещё нет в ассортименте DoDoPizza."
+                         f"Здесь ты можешь описать продукт, которого ещё нет в ассортименте."
                          f" А я подберу ингредиенты и сгенерирую изображение нового продукта.",
                          reply_markup=markup)
     user_states[message.chat.id] = "description"
