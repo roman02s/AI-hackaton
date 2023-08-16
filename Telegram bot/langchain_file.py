@@ -12,7 +12,7 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
         model=model,
         messages=[
         {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": combined_prompt},
+        {"role": "user", "content": prompt},
     ],
         temperature=0,
     )
